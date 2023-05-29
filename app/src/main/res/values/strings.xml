@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">StoreNBA</string>
+    <string name="conferencia_oeste">Conferencia Oeste</string>
+    <string name="conferencia_este">Conferencia Este</string>
+    <string name="iniciar_sesion">Iniciar Sesion</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="correo_electronico">Correo electronico</string>
+    <string name="crear_cuenta">Crear Cuenta</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="no_tienes_una_cuenta_crear_cuenta">¿No tienes una cuenta? Crear Cuenta</string>
+    <string name="ya_eres_usuario_iniciar_sesion">¿Ya eres usuario? Iniciar Sesion</string>
+</resources>

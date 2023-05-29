@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "549503177296",
+    "project_id": "storenba-a9eba",
+    "storage_bucket": "storenba-a9eba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549503177296:android:0dc9a710ae6d69e7427755",
+        "android_client_info": {
+          "package_name": "com.guillermohernandezpomares.storenba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549503177296-j4edl1mgsevjc0blqacqo18rp3idcc64.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5TUOTBt8tbOWuarfOWdslfNL7fiaqygY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549503177296-j4edl1mgsevjc0blqacqo18rp3idcc64.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

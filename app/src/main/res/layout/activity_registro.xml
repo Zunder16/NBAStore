@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.RegistroActivity">
+
+    <ImageView
+        android:id="@+id/ivAddFoto"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etUsuarioRegistro"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:hint="@string/correo_electronico"
+        app:layout_constraintEnd_toEndOf="@+id/ivAddFoto"
+        app:layout_constraintStart_toStartOf="@+id/ivAddFoto"
+        app:layout_constraintTop_toBottomOf="@+id/ivAddFoto">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etContraseniaRegistro"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="24dp"
+        android:hint="@string/contrase_a"
+        app:layout_constraintEnd_toEndOf="@+id/etUsuarioRegistro"
+        app:layout_constraintStart_toStartOf="@+id/etUsuarioRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/etUsuarioRegistro">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etNombreRegistro"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="24dp"
+        android:hint="@string/nombre"
+        app:layout_constraintEnd_toEndOf="@+id/etContraseniaRegistro"
+        app:layout_constraintStart_toStartOf="@+id/etContraseniaRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/etContraseniaRegistro">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etApellidosRegistro"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="24dp"
+        android:hint="@string/apellidos"
+        app:layout_constraintEnd_toEndOf="@+id/etNombreRegistro"
+        app:layout_constraintStart_toStartOf="@+id/etNombreRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/etNombreRegistro">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnCrearCuenta"
+        android:layout_width="199dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/crear_cuenta"
+        app:layout_constraintEnd_toEndOf="@+id/etApellidosRegistro"
+        app:layout_constraintStart_toStartOf="@+id/etApellidosRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/etApellidosRegistro" />
+
+    <TextView
+        android:id="@+id/tvIniciarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/ya_eres_usuario_iniciar_sesion"
+        app:layout_constraintEnd_toEndOf="@+id/btnCrearCuenta"
+        app:layout_constraintStart_toStartOf="@+id/btnCrearCuenta"
+        app:layout_constraintTop_toBottomOf="@+id/btnCrearCuenta" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
