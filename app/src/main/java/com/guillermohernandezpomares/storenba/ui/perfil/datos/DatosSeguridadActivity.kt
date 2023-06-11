@@ -49,8 +49,9 @@ class DatosSeguridadActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             }
+        }else{
+            Toast.makeText(this, "La contraseña es incorrecta", Toast.LENGTH_LONG).show()
         }
-        Toast.makeText(this, "La contraseña es incorrecto", Toast.LENGTH_LONG).show()
 
 
     }
@@ -66,7 +67,7 @@ class DatosSeguridadActivity : AppCompatActivity() {
         if(validarCorreo(nuevoCorreo)){
             autorizacion.currentUser!!.updateEmail(nuevoCorreo).addOnSuccessListener {
                 // Algo para saber que hemos actualizado el email
-                Toast.makeText(this, "El correro se ha modificado", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "El correo se ha modificado", Toast.LENGTH_LONG).show()
                 usuarioRepo.modifyUsuario(Constantes.DATOS_USUARIO!!.id, actualizacionDatosUsuario(nuevoCorreo))
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)

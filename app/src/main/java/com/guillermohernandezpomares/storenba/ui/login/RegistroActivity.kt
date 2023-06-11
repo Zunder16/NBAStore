@@ -81,7 +81,6 @@ class RegistroActivity : AppCompatActivity() {
             )
 
             ref.putFile(uri).addOnSuccessListener {
-                Toast.makeText(this, "Imagen cargada", Toast.LENGTH_LONG).show()
                 progressDialog.dismiss()
                 ref.downloadUrl.addOnSuccessListener { uri ->
                     // Poner la URL en el objeto de Usuario
@@ -156,7 +155,7 @@ class RegistroActivity : AppCompatActivity() {
             Toast.makeText(this, "Los campos estan vacios", Toast.LENGTH_LONG).show()
             return false
         } else if (!validarCorreo(binding.etUsuarioRegistro.editText?.text.toString())) {
-            Toast.makeText(this, "El correro es incorrecto", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "El correo es incorrecto", Toast.LENGTH_LONG).show()
             return false
         } else if (!validarContrasenya(binding.etContraseniaRegistro.editText?.text.toString())) {
             Toast.makeText(this, "La contraseña es incorrecta", Toast.LENGTH_LONG).show()

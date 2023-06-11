@@ -1,5 +1,7 @@
 package com.guillermohernandezpomares.storenba.ui.carrito
 
+import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,18 +10,21 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat.startActivity
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.guillermohernandezpomares.storenba.R
 import com.guillermohernandezpomares.storenba.databinding.ItemCarritoBinding
 import com.guillermohernandezpomares.storenba.model.ProductoCarrito
 import com.guillermohernandezpomares.storenba.model.ProductoCarritoInsertar
+import com.guillermohernandezpomares.storenba.ui.pagar.PagarActivity
 import com.guillermohernandezpomares.storenba.utils.CarritoRepo
 import com.guillermohernandezpomares.storenba.utils.Constantes
 
 class CarritoAdapter() : RecyclerView.Adapter<CarritoAdapter.ViewHolder>() {
 
-    private var carrito :MutableList<ProductoCarrito> = ArrayList()
+    private var carrito: MutableList<ProductoCarrito> = ArrayList()
     private lateinit var carritoActivity: CarritoActivity
 
     fun setCarrito(carrito: MutableList<ProductoCarrito>, carritoActivity: CarritoActivity) {
@@ -92,7 +97,6 @@ class CarritoAdapter() : RecyclerView.Adapter<CarritoAdapter.ViewHolder>() {
 
             binding.btnEliminar.setOnClickListener {
                 dialogo(carrito)
-
             }
 
         }
@@ -173,7 +177,8 @@ class CarritoAdapter() : RecyclerView.Adapter<CarritoAdapter.ViewHolder>() {
                 // Se define el comportamiento de los botones.
                 setPositiveButton(android.R.string.ok) { _, _ ->
                     carritoRepo.deleteCarrito(Constantes.DATOS_USUARIO!!.id, carrito.id)
-                    carritoActivity.refresh()
+                    val intent = Intent(context, CarritoActivity::class.java)
+                    context.startActivity(intent)
                 }
                 setNegativeButton(android.R.string.no) { _, _ ->
                     Toast.makeText(
