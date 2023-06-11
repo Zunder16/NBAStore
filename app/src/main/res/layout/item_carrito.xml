@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivFotoProductoCarrito"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvPrecioCarrito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/ivFotoProductoCarrito"
+        app:layout_constraintTop_toTopOf="@+id/ivFotoProductoCarrito" />
+
+    <TextView
+        android:id="@+id/tvDescripcionCarrito"
+        android:layout_width="166dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tvPrecioCarrito"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvPrecioCarrito"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrecioCarrito" />
+
+
+    <Spinner
+        android:id="@+id/spCantidadCarrito"
+        android:layout_width="100dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Spinner
+        android:id="@+id/spTallaCarrito"
+        android:layout_width="100dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/materialDivider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:dividerInsetEnd="16dp"
+        app:dividerInsetStart="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/spCantidadCarrito"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="68dp"
+        android:text="@string/cantidad"
+        app:layout_constraintEnd_toStartOf="@+id/tvDescripcionCarrito"
+        app:layout_constraintStart_toStartOf="@+id/ivFotoProductoCarrito"
+        app:layout_constraintTop_toBottomOf="@+id/ivFotoProductoCarrito" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/talla"
+        app:layout_constraintEnd_toEndOf="@+id/tvDescripcionCarrito"
+        app:layout_constraintHorizontal_bias="0.319"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/btnEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:text="@string/eliminar"
+        app:layout_constraintBottom_toTopOf="@+id/materialDivider"
+        app:layout_constraintStart_toEndOf="@+id/spTallaCarrito"
+        app:layout_constraintTop_toTopOf="@+id/spTallaCarrito"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

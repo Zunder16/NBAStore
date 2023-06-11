@@ -4,11 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
-import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.storage.FirebaseStorage
 import com.guillermohernandezpomares.storenba.model.Pedido
 import com.guillermohernandezpomares.storenba.model.PedidoInsertar
-import com.guillermohernandezpomares.storenba.model.Producto
+import com.guillermohernandezpomares.storenba.model.ProductoCarrito
+import com.guillermohernandezpomares.storenba.model.toMap
 
 class PedidoRepo {
 
@@ -24,13 +24,45 @@ class PedidoRepo {
             .delete()
 
     }
-    fun insertPedido(idUsuario: String, pedido: PedidoInsertar) {
+
+    fun insertPedido(
+        idUsuario: String,
+        pedido: PedidoInsertar,
+        listaProductos: List<ProductoCarrito>
+    ) {
         baseDatos.collection(Constantes.USUARIO)
             .document(idUsuario)
             .collection(Constantes.PEDIDO)
-            .add(pedido)
+            .add(pedido).addOnSuccessListener {
+                documentReference ->
+                listaProductos.forEach {
+                    documentReference.collection(Constantes.PRODUCTOS).add(it.toMap())
+                }
+                limpiarCarrito(idUsuario)
+            }
 
     }
+
+    private fun limpiarCarrito(idUsuario: String) {
+        val collectionRef = baseDatos.collection(Constantes.USUARIO)
+            .document(idUsuario)
+            .collection(Constantes.CARRITO)
+
+        collectionRef.get().addOnSuccessListener { querySnapshot ->
+            val batch = baseDatos.batch()
+
+            for (document in querySnapshot) {
+                batch.delete(document.reference)
+            }
+
+            batch.commit().addOnSuccessListener {
+                // Operación de eliminación exitosa
+            }.addOnFailureListener { e ->
+                // Manejo de errores
+            }
+        }
+    }
+
     fun modifyPedido(idUsuario: String, idPedido: String, pedido: PedidoInsertar) {
         baseDatos.collection(Constantes.USUARIO)
             .document(idUsuario)
@@ -48,12 +80,12 @@ class PedidoRepo {
             .get()
             .addOnSuccessListener { pedidosDB ->
                 var pedidosList = ArrayList<Pedido>()
-                pedidosDB.forEach{
+                pedidosDB.forEach {
                     var pedido: Pedido = it.toObject()
                     pedido.id = it.id
                     pedidosList.add((pedido))
                 }
-            pedidos.value = pedidosList
+                pedidos.value = pedidosList
             }
         return pedidos
 

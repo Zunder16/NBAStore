@@ -6,4 +6,162 @@
     android:layout_height="match_parent"
     tools:context=".ui.producto.DetalleProductoActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imagenDPProducto"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clImagenes"
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="@+id/imagenDPProducto"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/imagenDPProducto"
+                app:layout_constraintTop_toBottomOf="@+id/imagenDPProducto">
+
+                <ImageView
+                    android:id="@+id/imagen1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/imagen2"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toEndOf="@+id/imagen1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/imagen3"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toEndOf="@+id/imagen2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvDescripcion"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/descripcion"
+                app:layout_constraintStart_toStartOf="@+id/clImagenes"
+                app:layout_constraintTop_toBottomOf="@+id/clImagenes" />
+
+            <TextView
+                android:id="@+id/tvDPPrecio"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/precio"
+                app:layout_constraintStart_toStartOf="@+id/clImagenes"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescripcion" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggleButton"
+                android:layout_width="190dp"
+                app:singleSelection="true"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                app:checkedButton="@+id/btnS"
+                app:layout_constraintEnd_toEndOf="@+id/tvDPPrecio"
+                app:layout_constraintStart_toStartOf="@+id/tvDPPrecio"
+                app:layout_constraintTop_toBottomOf="@+id/tvDPPrecio">
+
+                <Button
+                    android:id="@+id/btnS"
+                    style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@string/s"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnM"
+                    style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/m"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnL"
+                    style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/l"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnXL"
+                    style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/xl"
+                    android:textSize="12sp" />
+
+
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <Spinner
+                android:id="@+id/spCantidad"
+                android:layout_width="240dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/toggleButton"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="@+id/toggleButton"
+                app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:text="@string/cantidad"
+                app:layout_constraintBottom_toBottomOf="@+id/spCantidad"
+                app:layout_constraintEnd_toStartOf="@+id/spCantidad"
+                app:layout_constraintTop_toTopOf="@+id/spCantidad"
+                app:layout_constraintVertical_bias="0.482" />
+
+            <Button
+                android:id="@+id/btnCarrito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/a_adir_al_carrito"
+                app:layout_constraintEnd_toEndOf="@+id/spCantidad"
+                app:layout_constraintStart_toStartOf="@+id/spCantidad"
+                app:layout_constraintTop_toBottomOf="@+id/spCantidad" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

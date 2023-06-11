@@ -7,17 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.guillermohernandezpomares.storenba.databinding.ItemEquipoBinding
 import com.guillermohernandezpomares.storenba.databinding.ItemProductoBinding
-import com.guillermohernandezpomares.storenba.model.Equipo
 import com.guillermohernandezpomares.storenba.model.Producto
+import com.guillermohernandezpomares.storenba.ui.producto.DetalleProductoActivity
 import com.guillermohernandezpomares.storenba.utils.Constantes
 
 class ProductoAdapter() : RecyclerView.Adapter<ProductoAdapter.ViewHolder>() {
 
     private var productos: List<Producto> = ArrayList()
 
-    fun setProductos(productos: List<Producto>){
+    fun setProductos(productos: List<Producto>) {
         this.productos = productos
         Log.i("Fallo en setters", "Fallo en setters")
     }
@@ -41,15 +40,20 @@ class ProductoAdapter() : RecyclerView.Adapter<ProductoAdapter.ViewHolder>() {
         private val binding = ItemProductoBinding.bind(view)
         fun bind(producto: Producto) {
 
-            with(binding){
-                Glide.with(itemView.context).load(Constantes.IMAGEN_PRODUCTO_DEFECTO).into(ivFotoProducto)
-                if (producto.imagen.isNotEmpty()){
+            with(binding) {
+                Glide.with(itemView.context).load(Constantes.IMAGEN_PRODUCTO_DEFECTO)
+                    .into(ivFotoProducto)
+                if (producto.imagen.isNotEmpty()) {
                     Glide.with(itemView.context).load(producto.imagen).into(ivFotoProducto)
                 }
-                tvPrecio.text = producto.precio.toString() + "€"
+                tvPrecio.text = String.format("%.2f€", producto.precio)
                 tvDescripcion.text = producto.descripcion
+                clProducto.setOnClickListener {
+                    val intent = Intent(itemView.context, DetalleProductoActivity::class.java)
+                    intent.putExtra("producto", producto)
+                    itemView.context.startActivity(intent)
+                }
             }
-
 
 
         }

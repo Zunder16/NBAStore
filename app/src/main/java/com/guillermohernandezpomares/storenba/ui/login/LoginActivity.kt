@@ -2,18 +2,14 @@ package com.guillermohernandezpomares.storenba.ui.login
 
 import android.content.ContentValues.TAG
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.guillermohernandezpomares.storenba.databinding.ActivityLoginBinding
-import com.guillermohernandezpomares.storenba.model.Usuario
 import com.guillermohernandezpomares.storenba.ui.MainActivity
-import com.guillermohernandezpomares.storenba.utils.Conexion
-import com.guillermohernandezpomares.storenba.utils.UsuarioRepo
-import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -24,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if(autorizacion.currentUser != null){
+        if (autorizacion.currentUser != null) {
             navegarMain()
         }
 
@@ -44,15 +40,17 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.etUsuario.editText?.text.toString()
             val password = binding.etContrasenia.editText?.text.toString()
 
-            if(comprobacion()){
-                autorizacion.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        navegarMain()
-                    } else {
-                        Log.e(TAG, "Error al logar el usuario", task.exception)
+            if (comprobacion()) {
+                autorizacion.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            navegarMain()
+                        } else {
+                            Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show()
+                            Log.e(TAG, "Error al logar el usuario", task.exception)
+                        }
                     }
-                }
-            }else{
+            } else {
                 Toast.makeText(this, "Error al introducir datos", Toast.LENGTH_LONG).show()
             }
 
@@ -61,8 +59,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-
-    private fun navegarRegistro(){
+    private fun navegarRegistro() {
         val intent = Intent(this, RegistroActivity::class.java)
         startActivity(intent)
     }
@@ -73,8 +70,10 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun comprobacion() : Boolean{
-        return if (binding.etUsuario.editText?.text.toString().isEmpty() || binding.etContrasenia.editText?.text.toString().isEmpty()){
+    private fun comprobacion(): Boolean {
+        return if (binding.etUsuario.editText?.text.toString()
+                .isEmpty() || binding.etContrasenia.editText?.text.toString().isEmpty()
+        ) {
             false
         } else validarCorreo(binding.etUsuario.editText?.text.toString())
 

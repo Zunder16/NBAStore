@@ -14,7 +14,7 @@ class EquipoAdapter() : RecyclerView.Adapter<EquipoAdapter.ViewHolder>() {
 
     private var equipos: List<Equipo> = ArrayList()
 
-    fun setEquipos(equipos: List<Equipo>){
+    fun setEquipos(equipos: List<Equipo>) {
         this.equipos = equipos
         Log.i("Fallo en setters", "Fallo en setters")
     }
@@ -37,17 +37,16 @@ class EquipoAdapter() : RecyclerView.Adapter<EquipoAdapter.ViewHolder>() {
 
         private val binding = ItemEquipoBinding.bind(view)
         fun bind(equipo: Equipo) {
-                Glide.with(itemView.context).load(equipo.imagen).into(binding.ivImagen)
-                binding.ivImagen.setOnClickListener{
-                    val intent = Intent(itemView.context, DetalleEquipoActivity::class.java)
-                    intent.putExtra("equipo", equipo)
-                    itemView.context.startActivity(intent)
-                }
+            Glide.with(itemView.context).load(equipo.imagen).into(binding.ivImagen)
+            binding.ivImagen.setOnClickListener {
+                val intent = Intent(itemView.context, DetalleEquipoActivity::class.java)
+                intent.putExtra("equipo", equipo)
+                itemView.context.startActivity(intent)
+            }
         }
 
 
     }
-
 
 
 }

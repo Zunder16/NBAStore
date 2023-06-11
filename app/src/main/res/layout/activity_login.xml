@@ -16,7 +16,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_person_24" />
+
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etUsuario"
@@ -36,6 +37,7 @@
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etContrasenia"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -44,7 +46,6 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginTop="24dp"
-        android:inputType="textPassword"
         android:hint="@string/contrase_a"
         app:layout_constraintEnd_toEndOf="@+id/etUsuario"
         app:layout_constraintStart_toStartOf="@+id/etUsuario"
@@ -53,7 +54,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -15,6 +15,40 @@
         android:theme="@style/Theme.StoreNBA"
         tools:targetApi="31">
         <activity
+            android:name=".ui.pagar.PagarActivity"
+            android:screenOrientation="portrait"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+
+            android:screenOrientation="portrait"
+            android:name=".ui.perfil.datos.DatosSeguridadActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".ui.perfil.pedido.PedidoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".ui.perfil.datos.DatosActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:screenOrientation="portrait"
             android:name=".ui.equipo.DetalleEquipoActivity"
             android:exported="false">
             <meta-data
@@ -22,6 +56,7 @@
                 android:value="" />
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".ui.carrito.CarritoActivity"
             android:exported="false">
             <meta-data
@@ -29,6 +64,7 @@
                 android:value="" />
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".ui.perfil.PerfilActivity"
             android:exported="false">
             <meta-data
@@ -36,6 +72,7 @@
                 android:value="" />
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".ui.producto.DetalleProductoActivity"
             android:exported="false">
             <meta-data
@@ -43,6 +80,7 @@
                 android:value="" />
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".ui.login.RegistroActivity"
             android:exported="false">
             <meta-data
@@ -50,6 +88,7 @@
                 android:value="" />
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".ui.MainActivity"
             android:exported="false">
             <meta-data
@@ -57,6 +96,7 @@
                 android:value="" />
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".ui.login.LoginActivity"
             android:exported="true">
             <intent-filter>

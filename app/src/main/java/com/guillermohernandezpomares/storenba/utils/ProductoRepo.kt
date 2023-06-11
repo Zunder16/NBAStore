@@ -12,25 +12,26 @@ class ProductoRepo {
     private val baseDatos = FirebaseFirestore.getInstance()
     private val almacenamiento = FirebaseStorage.getInstance()
 
-    fun getProductos() : LiveData<List<Producto>>{
+    fun getProductos(): LiveData<List<Producto>> {
 
-        val productos : MutableLiveData<List<Producto>> = MutableLiveData()
+        val productos: MutableLiveData<List<Producto>> = MutableLiveData()
 
         baseDatos.collection(Constantes.PRODUCTOS)
             .get()
             .addOnSuccessListener { productoDB ->
                 val productoList = ArrayList<Producto>()
-                productoDB.forEach{
+                productoDB.forEach {
                     var producto: Producto = it.toObject()
                     producto.id = it.id
-                    productoList.add((producto))
+                    productoList.add(producto)
                 }
                 productos.value = productoList
             }
         return productos
     }
-    fun getProducto(id: String) : LiveData<Producto>{
-        val producto : MutableLiveData<Producto> = MutableLiveData()
+
+    fun getProducto(id: String): LiveData<Producto> {
+        val producto: MutableLiveData<Producto> = MutableLiveData()
 
         baseDatos.collection(Constantes.PRODUCTOS)
             .document(id)
@@ -38,7 +39,7 @@ class ProductoRepo {
             .addOnSuccessListener { productoDB ->
                 var productoSnapshot: Producto? = productoDB.toObject()
                 producto.value = productoSnapshot
-                if (productoSnapshot == null){
+                if (productoSnapshot == null) {
                     productoSnapshot = Producto()
                     producto.value = productoSnapshot
                 }
@@ -47,16 +48,15 @@ class ProductoRepo {
     }
 
 
+    fun getProductosPorEquipo(): LiveData<List<Producto>> {
 
-    fun getProductosPorEquipo() : LiveData<List<Producto>> {
-
-        val productos : MutableLiveData<List<Producto>> = MutableLiveData()
+        val productos: MutableLiveData<List<Producto>> = MutableLiveData()
 
         baseDatos.collection(Constantes.PRODUCTOS)
             .get()
             .addOnSuccessListener { productoDB ->
                 val productoList = ArrayList<Producto>()
-                productoDB.forEach{
+                productoDB.forEach {
                     val producto: Producto = it.toObject()
                     producto.id = it.id
                     productoList.add(producto)
